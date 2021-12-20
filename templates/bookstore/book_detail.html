@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ object.title }}</title>
+</head>
+<body>
+<div>
+    <h2>{{ book.title }}</h2>
+    <p>{{ book.description }}</p>
+    <img src="{{ book.image.url }}" alt="">
+    <br><br>
+    <p>Created: {{ book.created_date }}</p>
+    <p>Updated: {{ book.updated_date }}</p><br>
+    <a href="/books/{{ object.id }}/update">Update</a>
+    <a href="/books/{{ object.id }}/delete">Delete</a><br>
+</div>
+<div>
+    <h2>Comments: </h2>
+    <ul>
+        {% for i in book_comment.all %}
+            <li>
+                <p>{{ i.text }}</p>
+                <p>Created on {{ i.created_date }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="/comment-create/{{ id }}/">Add Comment</a>
+</div>
+</body>
+</html>
