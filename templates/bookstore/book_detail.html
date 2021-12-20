@@ -6,26 +6,28 @@
 </head>
 <body>
 <div>
-    <h2>{{ book.title }}</h2>
-    <p>{{ book.description }}</p>
-    <img src="{{ book.image.url }}" alt="">
+    <h2>{{ object.title }}</h2>
+    <p>{{ object.description }}</p>
+    <img src="{{ object.image.url }}" alt="">
     <br><br>
-    <p>Created: {{ book.created_date }}</p>
-    <p>Updated: {{ book.updated_date }}</p><br>
+    <p>Created: {{ object.created_date }}</p>
+    <p>Updated: {{ object.updated_date }}</p><br>
     <a href="/books/{{ object.id }}/update">Update</a>
     <a href="/books/{{ object.id }}/delete">Delete</a><br>
 </div>
 <div>
     <h2>Comments: </h2>
     <ul>
-        {% for i in book_comment.all %}
+        {% for i in object_list %}
             <li>
                 <p>{{ i.text }}</p>
                 <p>Created on {{ i.created_date }}</p>
             </li>
         {% endfor %}
     </ul>
-    <a href="/comment-create/{{ id }}/">Add Comment</a>
+    <a href="/comment-create/">Add Comment</a>
+    <br><br>
+    <a href="/books/">Previous page</a><br>
 </div>
 </body>
 </html>

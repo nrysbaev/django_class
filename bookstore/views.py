@@ -53,13 +53,13 @@ class BookDeleteView(generic.DeleteView):
         return get_object_or_404(models.Book, id=post_id)
 
 
-def comment_create(request, id):
+def comment_create(request):
     if request.method == 'POST':
         form = forms.CommentForm(request.POST, request.FILES)
         print(form.data)
         if form.is_valid():
             form.save()
-            return redirect(f'/books/{id}')
+            return redirect(f'/books/')
     else:
         form = forms.CommentForm()
     return render(request, 'bookstore/comment_create.html', {'form': form})
