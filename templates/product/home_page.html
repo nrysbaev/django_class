@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+<div>
+    <ul>
+        {% for i in object_list %}
+            <li>
+            <h2><a href="/{{ i.id }}/">{{ i.name }}</a></h2>
+            <p>{{ i.date_created }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'customer_create' %}">Create customer</a><br><br>
+    <a href="{% url 'order_create' %}">Create order</a>
+</div>
+</body>
+</html>
