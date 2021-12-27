@@ -10,7 +10,11 @@
     <p>Price: {{ object.price }}$</p>
     <p>Description: {{ object.description }}</p>
     <p>Created date: {{ object.date_created }}</p>
-{#    <p>Tags: {{ object.tags }}</p>#}
+    <p>Tags:
+        {% for i in object.tags.all %}
+            {{ i }}{% if i != object.tags.all.last %} , {% endif %}
+        {% endfor %}
+    </p>
 </div>
 </body>
 </html>
